@@ -18,10 +18,13 @@ export default function Component() {
     formData.append("file", fileToUpload);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/upload-pdf", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://chatapp-server-4dw4.onrender.com/upload-pdf",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (response.ok) {
         alert("PDF uploaded successfully.");
@@ -60,13 +63,16 @@ export default function Component() {
     formData.append("query", message); // Append your data as key-value pairs
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/ask", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded", // Set content type to x-www-form-urlencoded
-        },
-        body: formData.toString(), // Convert to string
-      });
+      const response = await fetch(
+        "https://chatapp-server-4dw4.onrender.com/ask",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded", // Set content type to x-www-form-urlencoded
+          },
+          body: formData.toString(), // Convert to string
+        }
+      );
 
       if (!response.ok) {
         console.error("Error: Response status is not OK", response.status);
